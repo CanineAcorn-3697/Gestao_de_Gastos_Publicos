@@ -15,61 +15,80 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def buscar_pagina(ano: int, pagina: int) -> list[dict]:
-    headers = {
-        "chave-api-dados": API_KEY,
-        "Accept": "application/json"
-    }
-    params = {
-        "ano": ano,
-        "pagina": pagina,
-        "tamanhoPagina": PAGINA_TAMANHO
-    }
-    url = f"{API_URL}/despesas/por_orgao"
+HEADERS = {
+    "chave-api-dados": API_KEY,
+    "Accept": "application/json"
+}
 
-    try:
-        response = requests.get(url, headers=headers, params=params, timeout=30)
+def buscar_orgaos() -> list[str]:
+    """Busca todos os códigos de órgãos SIAFI válidos."""
+    orgaos = []
+    pagina = 1
+    while True:
+        url = f"{API_URL}/orgaos-siafi"
+        params = {"pagina": pagina}
+        response = requests.get(url, headers=HEADERS, params=params, timeout=30)
         response.raise_for_status()
-        return response.json()
-    except requests.exceptions.HTTPError as e:
-        logger.error(f"Erro HTTP na página {pagina}: {e}")
-        raise
-    except requests.exceptions.Timeout:
-        logger.error(f"Timeout na página {pagina}")
-        raise
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Erro de conexão: {e}")
-        raise
+        dados = response.json()
+        if not dados:
+            break
+        validos = [o["codigo"] for o in dados if "INVALIDO" not in o["descricao"].upper()]
+        orgaos.extend(validos)
+        logger.info(f"Órgãos - página {pagina}: {len(validos)} válidos de {len(dados)}")
+        pagina += 1
+    logger.info(f"Total de órgãos válidos encontrados: {len(orgaos)}")
+    return orgaos
+
+def buscar_despesas_orgao(ano: int, orgao: str) -> list[dict]:
+    """Busca todas as despesas de um órgão, paginando até o fim."""
+    todas = []
+    pagina = 1
+    url = f"{API_URL}/despesas/por-orgao"
+    while True:
+        params = {
+            "ano": ano,
+            "pagina": pagina,
+            "tamanhoPagina": PAGINA_TAMANHO,
+            "orgaoSuperior": orgao
+        }
+        try:
+            response = requests.get(url, headers=HEADERS, params=params, timeout=30)
+            response.raise_for_status()
+            dados = response.json()
+            if not dados:
+                break
+            todas.extend(dados)
+            logger.info(f"  Órgão {orgao} - página {pagina}: {len(dados)} registros")
+            pagina += 1
+        except requests.exceptions.HTTPError as e:
+            logger.warning(f"  Órgão {orgao} - erro na página {pagina}: {e}")
+            break
+    return todas
 
 def baixar_todos_os_dados(ano: int) -> pd.DataFrame:
-    todas_as_paginas = []
-    pagina = 1
     logger.info(f"Iniciando download - Ano: {ano}")
-    while True:
-        logger.info(f"Baixando página {pagina}...")
-        dados = buscar_pagina(ano, pagina)
-        if not dados:
-            logger.info(f"Paginação completa. Total de páginas: {pagina - 1}")
-            break
-        todas_as_paginas.extend(dados)
-        logger.info(f"Página {pagina} - {len(dados)} registros recebidos")
-        pagina += 1
-    df = pd.DataFrame(todas_as_paginas)
-    logger.info(f"Total de registros baixados: {len(df)}")
+    orgaos = buscar_orgaos()
+    todos_os_registros = []
+
+    for i, orgao in enumerate(orgaos, 1):
+        logger.info(f"[{i}/{len(orgaos)}] Baixando órgão: {orgao}")
+        registros = buscar_despesas_orgao(ano, orgao)
+        todos_os_registros.extend(registros)
+        logger.info(f"  Total acumulado: {len(todos_os_registros)} registros")
+
+    df = pd.DataFrame(todos_os_registros)
+    logger.info(f"Download concluído. Total de registros: {len(df)}")
     return df
 
 def salvar_bronze(df: pd.DataFrame, ano: int) -> str:
     os.makedirs(RAW_DATA_PATH, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    caminho = f"gastos_{ano}_{timestamp}.csv"
-
+    caminho = os.path.join(RAW_DATA_PATH, f"gastos_{ano}_{timestamp}.csv")
     df.to_csv(caminho, index=False, encoding="utf-8-sig")
-
     logger.info(f"Arquivo salvo em: {caminho}")
     return caminho
 
 def executar_ingestion():
-
     logger.info("=== INÍCIO DA INGESTÃO ===")
     df = baixar_todos_os_dados(ANO_REFERENCIA)
     caminho = salvar_bronze(df, ANO_REFERENCIA)
@@ -78,4 +97,3 @@ def executar_ingestion():
 
 if __name__ == "__main__":
     executar_ingestion()
-    
