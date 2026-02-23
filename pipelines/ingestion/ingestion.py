@@ -28,7 +28,7 @@ def buscar_pagina(ano: int, pagina: int) -> list[dict]:
     url = f"{API_URL}/despesas/por_orgao"
 
     try:
-        response = requests.geturl, headers=headers, params=params timeout=30)
+        response = requests.geturl, headers=headers, params=params, timeout=30)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.HTTPError as e:
