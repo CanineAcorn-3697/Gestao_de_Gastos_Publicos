@@ -1,4 +1,7 @@
-import pyspark.sql
+from pyspark.sql.types import (
+    StructType, StructField,
+    StringType, DoubleType, DateType, IntegerType
+)
 
 SCHEMA_BRONZE = StructType([
     StructField("orgaoSuperior", StringType(), True),
