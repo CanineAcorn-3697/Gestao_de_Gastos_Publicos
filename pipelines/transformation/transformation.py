@@ -3,14 +3,17 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.functions import col, to_date, trim, upper, regexp_replace, year
 import os
+import shutil
+import glob
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BRONZE_PATH = os.path.join(BASE_DIR, 'data', 'bronze')
-SILVER_PATH = os.path.join(BASE_DIR, 'data', 'silver')
-
+SILVER_DIR = os.path.join(BASE_DIR, 'data', 'silver')
+SILVER_TEMP = os.path.join(SILVER_DIR, '_temp')
+SILVER_FINAL = os.path.join(SILVER_DIR, 'gastos.parquet')
 
 def criar_spark_session():
     return (
@@ -20,7 +23,6 @@ def criar_spark_session():
         .config("spark.sql.session.timeZone", "UTC")
         .getOrCreate()
     )
-
 
 def encontrar_arquivo_mais_recente(pasta: str) -> str:
     arquivos = [
@@ -34,7 +36,6 @@ def encontrar_arquivo_mais_recente(pasta: str) -> str:
     logger.info(f"Arquivo selecionado: {caminho}")
     return caminho
 
-
 def limpar_valor_monetario(df, coluna: str):
     return df.withColumn(
         coluna,
@@ -47,13 +48,11 @@ def limpar_valor_monetario(df, coluna: str):
         col(coluna).cast("double")
     )
 
-
 def normalizar_nome_orgao(df, coluna: str):
     return df.withColumn(
         coluna,
         upper(trim(col(coluna)))
     )
-
 
 def remover_nulos_criticos(df):
     total_antes = df.count()
@@ -69,46 +68,48 @@ def remover_nulos_criticos(df):
         logger.warning(f"{removidos} linhas removidas por nulos críticos.")
     return df
 
-
 def executar_transformacao():
     logger.info("=== INÍCIO DA TRANSFORMAÇÃO ===")
     spark = criar_spark_session()
 
     arquivo = encontrar_arquivo_mais_recente(BRONZE_PATH)
     df = spark.read.csv(arquivo, header=True, inferSchema=False, encoding="utf-8")
-
     logger.info(f"Linhas lidas: {df.count()}")
     logger.info(f"Colunas: {df.columns}")
-
 
     df = df.withColumnRenamed("orgaoSuperior", "orgao_superior") \
            .withColumnRenamed("codigoOrgaoSuperior", "codigo_orgao_superior") \
            .withColumnRenamed("codigoOrgao", "codigo_orgao")
 
-
     df = limpar_valor_monetario(df, "empenhado")
     df = limpar_valor_monetario(df, "liquidado")
     df = limpar_valor_monetario(df, "pago")
-
     df = normalizar_nome_orgao(df, "orgao")
     df = normalizar_nome_orgao(df, "orgao_superior")
-
-
     df = df.withColumn("ano", col("ano").cast("integer"))
-
     df = remover_nulos_criticos(df)
-
     df = df.dropDuplicates()
-
     logger.info(f"Linhas após limpeza: {df.count()}")
 
-    df.write \
-      .mode("overwrite") \
-      .parquet(SILVER_PATH)
+    # Spark escreve na pasta temporária
+    os.makedirs(SILVER_DIR, exist_ok=True)
+    df.coalesce(1).write.mode("overwrite").parquet(SILVER_TEMP)
 
-    logger.info(f"Silver salvo em: {SILVER_PATH}")
+    # Pega o arquivo part gerado
+    part_file = glob.glob(os.path.join(SILVER_TEMP, 'part-*.parquet'))[0]
+
+    # Remove o arquivo final anterior se existir
+    if os.path.exists(SILVER_FINAL):
+        os.remove(SILVER_FINAL)
+
+    # Move e renomeia para o nome desejado
+    shutil.move(part_file, SILVER_FINAL)
+
+    # Remove a pasta temporária
+    shutil.rmtree(SILVER_TEMP)
+
+    logger.info(f"Silver salvo em: {SILVER_FINAL}")
     logger.info("=== FIM DA TRANSFORMAÇÃO ===")
-
 
 if __name__ == "__main__":
     executar_transformacao()
