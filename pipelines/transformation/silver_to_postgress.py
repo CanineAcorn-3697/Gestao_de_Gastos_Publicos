@@ -14,7 +14,7 @@ PG_HOST     = os.getenv("POSTGRES_HOST",     "localhost")
 PG_PORT     = os.getenv("POSTGRES_PORT",     "5432")
 PG_DB       = os.getenv("POSTGRES_DB",       "gastos_publicos")
 PG_USER     = os.getenv("POSTGRES_USER",     "postgres")
-PG_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgres")
+PG_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgress")
 
 
 def garantir_banco_existe():
