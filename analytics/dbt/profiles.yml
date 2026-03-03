@@ -1,0 +1,12 @@
+gastos_publicos:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5434
+      user: postgres
+      password: postgress
+      dbname: gastos_publicos
+      schema: gold
+      threads: 4

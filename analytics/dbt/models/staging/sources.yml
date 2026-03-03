@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: gastos
+    description: "Gastos Publicos normalizados"
+    columns:
+      - name: orgao
+        description: "Nome do órgão"
+      - name: pago
+        description: "Valor pago em reais"
+      - name: ano
+        description: "Ano extraído da data"
