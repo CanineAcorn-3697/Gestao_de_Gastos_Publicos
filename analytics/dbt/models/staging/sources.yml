@@ -1,12 +1,14 @@
-version: 2
-
 sources:
-  - name: gastos
+  - name: silver
     description: "Gastos Publicos normalizados"
-    columns:
-      - name: orgao
-        description: "Nome do órgão"
-      - name: pago
-        description: "Valor pago em reais"
-      - name: ano
-        description: "Ano extraído da data"
+    schema: silver
+    tables:
+      - name: gastos
+        description: "Tabela de gastos públicos"
+        columns:
+          - name: orgao
+            description: "Nome do órgão"
+          - name: pago
+            description: "Valor pago em reais"
+          - name: ano
+            description: "Ano extraído da data"

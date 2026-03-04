@@ -2,10 +2,10 @@ name: gastos_publicos
 version: "1.0.0"
 profile: gastos_publicos
 
-model-path: ["models"]
-macro-path: ["macros"]
-seed-path: ["seeds"]
-test-path: ["tests"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
 
 
 models:

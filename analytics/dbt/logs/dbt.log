@@ -1,0 +1,343 @@
+[0m20:42:28.020238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67b78bf50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67d9faf60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67b219100>]}
+
+
+============================== 20:42:28.028782 | ae05a0db-4518-4acb-88ea-9da16a0a2180 ==============================
+[0m20:42:28.028782 [info ] [MainThread]: Running with dbt=1.11.6
+[0m20:42:28.031101 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'profiles_dir': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt', 'use_colors': 'True', 'warn_error': 'None', 'static_parser': 'True', 'invocation_command': 'dbt seed', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'target_path': 'None', 'cache_selected_only': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'debug': 'False', 'quiet': 'False', 'printer_width': '80', 'log_path': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/logs', 'partial_parse': 'True', 'fail_fast': 'False', 'empty': 'None', 'log_format': 'default', 'write_json': 'True', 'introspect': 'True'}
+[0m20:42:28.418156 [error] [MainThread]: Encountered an error:
+Runtime Error
+  at path []: Additional properties are not allowed ('macro-path', 'model-path', 'seed-path', 'test-path' were unexpected)
+
+Error encountered in /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/dbt_project.yml
+[0m20:42:28.420899 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.5678558, "process_in_blocks": "70312", "process_kernel_time": 0.350326, "process_mem_max_rss": "108196", "process_out_blocks": "16", "process_user_time": 3.69144}
+[0m20:42:28.422808 [debug] [MainThread]: Command `dbt seed` failed at 20:42:28.422403 after 0.57 seconds
+[0m20:42:28.423994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67d9faf60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67b0cedb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75e67bc3d160>]}
+[0m20:42:28.425315 [debug] [MainThread]: Flushing usage events
+[0m20:42:29.053436 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:48:51.123728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ecd68170>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82eef9b4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ed19fef0>]}
+
+
+============================== 20:48:51.131876 | e65fce14-34dc-4579-8e91-fef72015f93d ==============================
+[0m20:48:51.131876 [info ] [MainThread]: Running with dbt=1.11.6
+[0m20:48:51.133016 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt', 'quiet': 'False', 'partial_parse': 'True', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'invocation_command': 'dbt seed', 'cache_selected_only': 'False', 'warn_error': 'None', 'log_cache_events': 'False', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'fail_fast': 'False', 'printer_width': '80', 'target_path': 'None', 'indirect_selection': 'eager', 'empty': 'None', 'write_json': 'True', 'log_path': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/logs', 'no_print': 'None', 'use_experimental_parser': 'False', 'version_check': 'True', 'use_colors': 'True'}
+[0m20:48:51.499698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e65fce14-34dc-4579-8e91-fef72015f93d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82eec74200>]}
+[0m20:48:51.661788 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e65fce14-34dc-4579-8e91-fef72015f93d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ec6ce660>]}
+[0m20:48:51.663779 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:48:51.856491 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m20:48:51.857818 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:48:51.859256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e65fce14-34dc-4579-8e91-fef72015f93d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ec5fb800>]}
+[0m20:48:54.683774 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'dim_orgaos' in the 'models' section of file 'models/marts/_marts.yml'
+[0m20:48:55.140849 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Invalid sources config given in models/staging/sources.yml @ sources: {'name': 'gastos', 'description': 'Gastos Publicos normalizados', 'columns': [{'name': 'orgao', 'description': 'Nome do órgão'}, {'name': 'pago', 'description': 'Valor pago em reais'}, {'name': 'ano', 'description': 'Ano extraído da data'}]} - at path []: Additional properties are not allowed ('columns' was unexpected)
+[0m20:48:55.143374 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 4.158613, "process_in_blocks": "43496", "process_kernel_time": 0.465897, "process_mem_max_rss": "121344", "process_out_blocks": "16", "process_user_time": 7.212369}
+[0m20:48:55.144735 [debug] [MainThread]: Command `dbt seed` failed at 20:48:55.144411 after 4.16 seconds
+[0m20:48:55.145815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ed631fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82ea38e750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a82eaf78410>]}
+[0m20:48:55.146887 [debug] [MainThread]: Flushing usage events
+[0m20:48:55.783377 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:53:02.393419 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce0954800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce0955820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce0a1ae70>]}
+
+
+============================== 20:53:02.401557 | 274968f2-2c6a-4150-9306-24accf5da59c ==============================
+[0m20:53:02.401557 [info ] [MainThread]: Running with dbt=1.11.6
+[0m20:53:02.403417 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'no_print': 'None', 'log_format': 'default', 'cache_selected_only': 'False', 'invocation_command': 'dbt seed', 'write_json': 'True', 'printer_width': '80', 'static_parser': 'True', 'version_check': 'True', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/logs', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'warn_error': 'None', 'target_path': 'None', 'partial_parse': 'True', 'introspect': 'True', 'fail_fast': 'False', 'profiles_dir': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt', 'quiet': 'False'}
+[0m20:53:02.820614 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '274968f2-2c6a-4150-9306-24accf5da59c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758cdfeb4bc0>]}
+[0m20:53:02.986149 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '274968f2-2c6a-4150-9306-24accf5da59c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce0db7ec0>]}
+[0m20:53:02.988407 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:53:03.257487 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m20:53:03.259838 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:53:03.262941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '274968f2-2c6a-4150-9306-24accf5da59c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758cdfedd850>]}
+[0m20:53:06.109759 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'dim_orgaos' in the 'models' section of file 'models/marts/_marts.yml'
+[0m20:53:06.514032 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.gastos_publicos.stg_gastos' (models/staging/stg_gastos.sql) depends on a source named 'silver.gastos' which was not found
+[0m20:53:06.516290 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 4.2874637, "process_in_blocks": "0", "process_kernel_time": 0.38855, "process_mem_max_rss": "121216", "process_out_blocks": "16", "process_user_time": 6.904012}
+[0m20:53:06.517353 [debug] [MainThread]: Command `dbt seed` failed at 20:53:06.517130 after 4.29 seconds
+[0m20:53:06.518242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce144b860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758cdefce5a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x758ce141d970>]}
+[0m20:53:06.519112 [debug] [MainThread]: Flushing usage events
+[0m20:53:07.162545 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:54:21.825325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e7f51f40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e7640b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e7f51400>]}
+
+
+============================== 20:54:21.832168 | 4c3dea90-dc29-40a5-81ba-bd7db387eb86 ==============================
+[0m20:54:21.832168 [info ] [MainThread]: Running with dbt=1.11.6
+[0m20:54:21.833405 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'partial_parse': 'True', 'profiles_dir': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt', 'static_parser': 'True', 'log_path': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/logs', 'use_colors': 'True', 'log_format': 'default', 'debug': 'False', 'invocation_command': 'dbt seed', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'indirect_selection': 'eager', 'warn_error': 'None', 'version_check': 'True', 'quiet': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'empty': 'None', 'cache_selected_only': 'False'}
+[0m20:54:22.276597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e7b26750>]}
+[0m20:54:22.425725 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e705fb90>]}
+[0m20:54:22.427699 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:54:22.615903 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m20:54:22.617191 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:54:22.619013 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e705fce0>]}
+[0m20:54:25.654763 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'dim_orgaos' in the 'models' section of file 'models/marts/_marts.yml'
+[0m20:54:26.354076 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.gastos_publicos.intermediate
+[0m20:54:26.378333 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e809ed80>]}
+[0m20:54:26.639528 [debug] [MainThread]: Wrote artifact WritableManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/manifest.json
+[0m20:54:26.647210 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/semantic_manifest.json
+[0m20:54:26.698847 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e4bb3bf0>]}
+[0m20:54:26.700465 [info ] [MainThread]: Found 4 models, 8 data tests, 1 seed, 1 source, 465 macros
+[0m20:54:26.701826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4c3dea90-dc29-40a5-81ba-bd7db387eb86', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e66d34a0>]}
+[0m20:54:26.706249 [info ] [MainThread]: 
+[0m20:54:26.707663 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:54:26.709074 [info ] [MainThread]: 
+[0m20:54:26.711106 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m20:54:26.713476 [debug] [ThreadPool]: Acquiring new postgres connection 'list_gastos_publicos'
+[0m20:54:26.866294 [debug] [ThreadPool]: Using postgres connection "list_gastos_publicos"
+[0m20:54:26.867980 [debug] [ThreadPool]: On list_gastos_publicos: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m20:54:26.869399 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:54:26.875026 [debug] [ThreadPool]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5434 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[0m20:54:26.878795 [debug] [ThreadPool]: Postgres adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m20:54:26.880448 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m20:54:26.882229 [debug] [ThreadPool]: Postgres adapter: Error running SQL: macro list_schemas
+[0m20:54:26.883822 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m20:54:26.885375 [debug] [ThreadPool]: On list_gastos_publicos: No close available on handle
+[0m20:54:26.888516 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:54:26.890243 [debug] [MainThread]: Connection 'list_gastos_publicos' was properly closed.
+[0m20:54:26.891646 [info ] [MainThread]: 
+[0m20:54:26.893378 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.18 seconds (0.18s).
+[0m20:54:26.895476 [error] [MainThread]: Encountered an error:
+Database Error
+  connection to server at "localhost" (127.0.0.1), port 5434 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+[0m20:54:26.899112 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 5.1893234, "process_in_blocks": "4120", "process_kernel_time": 0.375084, "process_mem_max_rss": "129280", "process_out_blocks": "1936", "process_user_time": 8.093827}
+[0m20:54:26.901104 [debug] [MainThread]: Command `dbt seed` failed at 20:54:26.900723 after 5.19 seconds
+[0m20:54:26.902666 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23ebb7fad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e2dcad80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d23e3721580>]}
+[0m20:54:26.904262 [debug] [MainThread]: Flushing usage events
+[0m20:54:27.547096 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:56:08.266940 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d1e5dcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d17398e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d31d2570>]}
+
+
+============================== 20:56:08.278190 | 18b7c4b2-b99c-42e8-9e6d-2b89b04526cb ==============================
+[0m20:56:08.278190 [info ] [MainThread]: Running with dbt=1.11.6
+[0m20:56:08.280224 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'profiles_dir': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'introspect': 'True', 'partial_parse': 'True', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'target_path': 'None', 'no_print': 'None', 'invocation_command': 'dbt seed', 'debug': 'False', 'empty': 'None', 'indirect_selection': 'eager', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'log_path': '/home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/logs', 'use_colors': 'True', 'version_check': 'True', 'static_parser': 'True', 'warn_error': 'None'}
+[0m20:56:08.720820 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d1691c10>]}
+[0m20:56:08.884476 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d1ff8a40>]}
+[0m20:56:08.886185 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:56:09.054400 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m20:56:09.335712 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m20:56:09.337014 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cfd43e30>]}
+[0m20:56:11.758149 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'dim_orgaos' in the 'models' section of file 'models/marts/_marts.yml'
+[0m20:56:12.395213 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.gastos_publicos.intermediate
+[0m20:56:12.422859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cdc27b60>]}
+[0m20:56:12.690323 [debug] [MainThread]: Wrote artifact WritableManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/manifest.json
+[0m20:56:12.694913 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/semantic_manifest.json
+[0m20:56:12.734220 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cdb1d460>]}
+[0m20:56:12.735310 [info ] [MainThread]: Found 4 models, 8 data tests, 1 seed, 1 source, 465 macros
+[0m20:56:12.736193 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cdc70fe0>]}
+[0m20:56:12.740388 [info ] [MainThread]: 
+[0m20:56:12.741782 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:56:12.742974 [info ] [MainThread]: 
+[0m20:56:12.744473 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m20:56:12.746497 [debug] [ThreadPool]: Acquiring new postgres connection 'list_gastos_publicos'
+[0m20:56:12.837796 [debug] [ThreadPool]: Using postgres connection "list_gastos_publicos"
+[0m20:56:12.839263 [debug] [ThreadPool]: On list_gastos_publicos: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m20:56:12.840326 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:56:12.892850 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.052 seconds
+[0m20:56:12.896247 [debug] [ThreadPool]: On list_gastos_publicos: Close
+[0m20:56:12.906684 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_gastos_publicos, now list_gastos_publicos_gold_gold)
+[0m20:56:12.908714 [debug] [ThreadPool]: Acquiring new postgres connection 'list_gastos_publicos_gold_staging'
+[0m20:56:12.936893 [debug] [ThreadPool]: Using postgres connection "list_gastos_publicos_gold_gold"
+[0m20:56:12.941528 [debug] [ThreadPool]: Acquiring new postgres connection 'list_gastos_publicos_gold'
+[0m20:56:12.951130 [debug] [ThreadPool]: Using postgres connection "list_gastos_publicos_gold_staging"
+[0m20:56:12.952435 [debug] [ThreadPool]: On list_gastos_publicos_gold_gold: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos_gold_gold"} */
+select
+      'gastos_publicos' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold_gold'
+    union all
+    select
+      'gastos_publicos' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold_gold'
+    union all
+    select
+      'gastos_publicos' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold_gold'
+  
+[0m20:56:12.957527 [debug] [ThreadPool]: Using postgres connection "list_gastos_publicos_gold"
+[0m20:56:12.958890 [debug] [ThreadPool]: On list_gastos_publicos_gold_staging: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos_gold_staging"} */
+select
+      'gastos_publicos' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold_staging'
+    union all
+    select
+      'gastos_publicos' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold_staging'
+    union all
+    select
+      'gastos_publicos' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold_staging'
+  
+[0m20:56:12.960428 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:56:12.961417 [debug] [ThreadPool]: On list_gastos_publicos_gold: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "list_gastos_publicos_gold"} */
+select
+      'gastos_publicos' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'gastos_publicos' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'gastos_publicos' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+  
+[0m20:56:12.962740 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:56:12.964456 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:56:13.000362 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.038 seconds
+[0m20:56:13.001682 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.037 seconds
+[0m20:56:13.006298 [debug] [ThreadPool]: On list_gastos_publicos_gold_staging: ROLLBACK
+[0m20:56:13.014170 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.054 seconds
+[0m20:56:13.013044 [debug] [ThreadPool]: On list_gastos_publicos_gold: ROLLBACK
+[0m20:56:13.017170 [debug] [ThreadPool]: On list_gastos_publicos_gold_staging: Close
+[0m20:56:13.022428 [debug] [ThreadPool]: On list_gastos_publicos_gold_gold: ROLLBACK
+[0m20:56:13.025135 [debug] [ThreadPool]: On list_gastos_publicos_gold: Close
+[0m20:56:13.031418 [debug] [ThreadPool]: On list_gastos_publicos_gold_gold: Close
+[0m20:56:13.054033 [debug] [MainThread]: Using postgres connection "master"
+[0m20:56:13.055668 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m20:56:13.057207 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:56:13.103074 [debug] [MainThread]: SQL status: SELECT 0 in 0.046 seconds
+[0m20:56:13.109881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cf142c90>]}
+[0m20:56:13.111928 [debug] [MainThread]: On master: ROLLBACK
+[0m20:56:13.114329 [debug] [MainThread]: On master: COMMIT
+[0m20:56:13.116133 [debug] [MainThread]: Using postgres connection "master"
+[0m20:56:13.118246 [debug] [MainThread]: On master: COMMIT
+[0m20:56:13.120230 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m20:56:13.121690 [debug] [MainThread]: On master: Close
+[0m20:56:13.131168 [debug] [Thread-1 (]: Began running node seed.gastos_publicos.de_para_orgaos
+[0m20:56:13.133316 [info ] [Thread-1 (]: 1 of 1 START seed file gold.de_para_orgaos ..................................... [RUN]
+[0m20:56:13.135118 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_gastos_publicos_gold, now seed.gastos_publicos.de_para_orgaos)
+[0m20:56:13.136664 [debug] [Thread-1 (]: Began compiling node seed.gastos_publicos.de_para_orgaos
+[0m20:56:13.138398 [debug] [Thread-1 (]: Began executing node seed.gastos_publicos.de_para_orgaos
+[0m20:56:13.244302 [debug] [Thread-1 (]: Using postgres connection "seed.gastos_publicos.de_para_orgaos"
+[0m20:56:13.246356 [debug] [Thread-1 (]: On seed.gastos_publicos.de_para_orgaos: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "gastos_publicos", "target_name": "dev", "node_id": "seed.gastos_publicos.de_para_orgaos"} */
+
+    create table "gastos_publicos"."gold"."de_para_orgaos" ("nome_variante" text,"nome_padrao" text)
+  
+[0m20:56:13.248867 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:56:13.292050 [debug] [Thread-1 (]: SQL status: CREATE TABLE in 0.043 seconds
+[0m20:56:13.340722 [debug] [Thread-1 (]: Using postgres connection "seed.gastos_publicos.de_para_orgaos"
+[0m20:56:13.342068 [debug] [Thread-1 (]: On seed.gastos_publicos.de_para_orgaos: 
+          insert into "gastos_publicos"."gold"."de_para_orgaos" ("nome_variante", "nome_padrao") values
+          (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
+      ...
+[0m20:56:13.351350 [debug] [Thread-1 (]: SQL status: INSERT 0 6 in 0.001 seconds
+[0m20:56:13.374959 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.gastos_publicos.de_para_orgaos"
+[0m20:56:13.454786 [debug] [Thread-1 (]: On seed.gastos_publicos.de_para_orgaos: COMMIT
+[0m20:56:13.456861 [debug] [Thread-1 (]: Using postgres connection "seed.gastos_publicos.de_para_orgaos"
+[0m20:56:13.458864 [debug] [Thread-1 (]: On seed.gastos_publicos.de_para_orgaos: COMMIT
+[0m20:56:13.462345 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m20:56:13.469499 [debug] [Thread-1 (]: On seed.gastos_publicos.de_para_orgaos: Close
+[0m20:56:13.476238 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '18b7c4b2-b99c-42e8-9e6d-2b89b04526cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d3d13410>]}
+[0m20:56:13.478781 [info ] [Thread-1 (]: 1 of 1 OK loaded seed file gold.de_para_orgaos ................................. [[32mINSERT 6[0m in 0.34s]
+[0m20:56:13.481625 [debug] [Thread-1 (]: Finished running node seed.gastos_publicos.de_para_orgaos
+[0m20:56:13.486549 [debug] [MainThread]: On master: COMMIT
+[0m20:56:13.488323 [debug] [MainThread]: Using postgres connection "master"
+[0m20:56:13.490195 [debug] [MainThread]: On master: COMMIT
+[0m20:56:13.491539 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:56:13.516128 [debug] [MainThread]: SQL status: COMMIT in 0.024 seconds
+[0m20:56:13.517542 [debug] [MainThread]: On master: Close
+[0m20:56:13.521685 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:56:13.523152 [debug] [MainThread]: Connection 'list_gastos_publicos_gold_gold' was properly closed.
+[0m20:56:13.524553 [debug] [MainThread]: Connection 'list_gastos_publicos_gold_staging' was properly closed.
+[0m20:56:13.526702 [debug] [MainThread]: Connection 'seed.gastos_publicos.de_para_orgaos' was properly closed.
+[0m20:56:13.528093 [info ] [MainThread]: 
+[0m20:56:13.529329 [info ] [MainThread]: Finished running 1 seed in 0 hours 0 minutes and 0.78 seconds (0.78s).
+[0m20:56:13.531657 [debug] [MainThread]: Command end result
+[0m20:56:13.587053 [debug] [MainThread]: Wrote artifact WritableManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/manifest.json
+[0m20:56:13.591375 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/semantic_manifest.json
+[0m20:56:13.608268 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/canineacorn/Proj_isac_2/Gastos_publicos/analytics/dbt/target/run_results.json
+[0m20:56:13.610927 [info ] [MainThread]: 
+[0m20:56:13.613084 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:56:13.614505 [info ] [MainThread]: 
+[0m20:56:13.620629 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m20:56:13.624748 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 5.5213065, "process_in_blocks": "53440", "process_kernel_time": 0.50463, "process_mem_max_rss": "137316", "process_out_blocks": "2904", "process_user_time": 8.70563}
+[0m20:56:13.626850 [debug] [MainThread]: Command `dbt seed` succeeded at 20:56:13.626444 after 5.52 seconds
+[0m20:56:13.628591 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d24fcfe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104d1766120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7104cd034da0>]}
+[0m20:56:13.630025 [debug] [MainThread]: Flushing usage events
+[0m20:56:14.277264 [debug] [MainThread]: An error was encountered while trying to flush usage events
