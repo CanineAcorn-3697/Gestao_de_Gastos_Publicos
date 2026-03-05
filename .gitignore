@@ -1,4 +1,8 @@
 /venv
+/venv_streamlit
 .env
 __pycache__/
 data/logs/
+analytics/dbt/logs
+analytics/dbt/target
+analytics/dbt/.user.yml

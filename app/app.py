@@ -1,7 +1,7 @@
 # app/app.py
 import streamlit as st
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import os
 
 st.set_page_config(
@@ -24,8 +24,10 @@ def get_engine():
 @st.cache_data(ttl=3600)
 def carregar_dados():
     engine = get_engine()
+    query = text("SELECT * FROM gold_gold.fato_gastos_por_orgao_ano")
+
     with engine.connect() as conn:
-        return pd.read_sql("SELECT * FROM gold.fato_gastos_por_orgao_ano", conn)
+        return pd.read_sql(query, conn)
 
 # Página inicial
 st.title("💰 Dashboard de Gastos Públicos")
@@ -33,12 +35,13 @@ st.markdown("---")
 
 # Métricas gerais no topo
 df = carregar_dados()
+st.write(df.columns)
 
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric(
         label="Total Gasto",
-        value=f"R$ {df['liquidado'].sum():,.2f}"
+        value=f"R$ {df['total_gasto'].sum():,.2f}"
     )
 with col2:
     st.metric(
